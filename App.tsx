@@ -33,8 +33,25 @@ function SingOut() {
 function SignInScreen() {
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
-
   const { signIn } = React.useContext(AuthContext);
+
+  function login_action (username, password) {
+    console.log('login_action')
+    console.log('username: ', username)
+    console.log('password: ', password)
+    if (username != 'C42' || password != 'C42') {
+      alert('usuario: C42\npassword C42' )
+      return
+    }
+    if (password != 'C42') {
+      alert('password: C42')
+      return
+    }
+    signIn({ username, password })
+    
+  } ;
+
+
 
   const styles = StyleSheet.create({
     container: {
@@ -59,10 +76,16 @@ function SignInScreen() {
       flex: 1,
       padding: 10,
       marginLeft: 20,
+      color:"white"
     },
     forgot_button: {
       height: 30,
       marginBottom: 30,
+    },
+    loginText: {
+      color:"white",
+      fontSize: 14,
+      fontWeight:'bold'
     },
     loginBtn: {
       width: "80%",
@@ -82,21 +105,21 @@ function SignInScreen() {
       <View style={styles.inputView}>
         <TextInput
           style={styles.TextInput}
-          placeholder="Email."
-          placeholderTextColor="#003f5c"
-          onChangeText={(email) => setEmail(email)}
+          placeholder="Username"
+          placeholderTextColor="white"
+          onChangeText={(username) => setUsername(username)}
         /> 
       </View> 
       <View style={styles.inputView}>
         <TextInput
           style={styles.TextInput}
-          placeholder="Password."
-          placeholderTextColor="#003f5c"
+          placeholder="Password"
+          placeholderTextColor="white"
           secureTextEntry={true}
           onChangeText={(password) => setPassword(password)}
         /> 
       </View> 
-      <TouchableOpacity style={styles.loginBtn} onPress={() => signIn({ username, password })} >
+      <TouchableOpacity style={styles.loginBtn} onPress={ () => login_action(username, password)  } >
         <Text style={styles.loginText}>LOGIN</Text> 
       </TouchableOpacity> 
     </View> 
@@ -190,13 +213,13 @@ export default function App({ navigation }) {
             </Stack.Navigator>
           ) : state.userToken == null ? (
             <Stack.Navigator>
-              <Stack.Screen name="SignIn" component={SignInScreen}/>
+              <Stack.Screen name="Inicio" component={SignInScreen}/>
             </Stack.Navigator>
           ) : (
             <Drawer.Navigator>
               <Drawer.Screen name="Noticias" component={News} />
               <Drawer.Screen name="Fondo de ahorros" component={Savings} />
-              <Drawer.Screen name="SingOut" component={SingOut} />
+              <Drawer.Screen name="Cerrar sesión" component={SingOut} />
               
             </Drawer.Navigator>
           )}
