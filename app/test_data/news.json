@@ -1,0 +1,67 @@
+{
+    "rows" : [
+      {
+        "id"    : 1,
+        "title" : "Junta Online General",
+        "text"  : "Junta Online General por meets",
+        "link"  : "https://meet.google.com/?pli=1",
+        "date"  : "27 de agosto 2023, 9:00 pm"
+      },
+      {
+        "id"    : 2,
+        "title" : "Encuesta Total Play",
+        "text"  : "Encuesta para instalación de cableado de total play",
+        "link"  : "https://www.google.com/forms/about/",
+        "date"  : "27 de agosto"
+      },
+      {
+        "id"    : 3,
+        "title" : "Mantenimiento Alberca",
+        "text"  : "La alberca estará en mantenimiento el dia lunes, La alberca estará en mantenimiento el dia lunes",
+        "link"  : "" ,
+        "date"  : "28 de agosto"
+      },
+      {
+        "id"    : 4,
+        "title" : "Junta General",
+        "text"  : "Junta General online, por meets",
+        "link"  : "https://meet.google.com/?pli=1",
+        "date"  : "2 de septiembre"
+      },
+      {
+        "id"    : 5,
+        "title" : "Encuesta Total Play",
+        "text"  : "Encuesta para instalación de cableado de total play",
+        "link"  : "https://meet.google.com/?pli=1",
+        "date"  : "27 de agosto 2023"
+      },
+      {
+        "id"    : 6,
+        "title" : "Mantenimiento Alberca",
+        "text"  : "La alberca estará en mantenimiento el dia lunes",
+        "link"  : "",
+        "date"  : "28 de agosto"
+      },
+      {
+        "id"    : 7,
+        "title" : "Junta General",
+        "text"  : "Junta General por meets",
+        "link"  : "https://meet.google.com/?pli=1",
+        "date"  : "27 de agosto a las 9:00 pm"
+      },
+      {
+        "id"    : 8,
+        "title" : "Encuesta Total Play",
+        "text"  : "Encuesta para instalación de cableado de total play",
+        "link"  : "https://www.google.com/forms/about/",
+        "date"  : "27 de agosto" 
+      },
+      {
+        "id"    : 9,
+        "title" : "Mantenimiento Alberca",
+        "text"  : "La alberca estará en mantenimiento el dia lunes",
+        "link"  : "",
+        "date"  : "9 de septiembre"
+      }
+    ]
+  }
