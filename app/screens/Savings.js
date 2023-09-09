@@ -6,7 +6,7 @@ import FinantialResume from '@components/FinantialResume';
 
 const styles = StyleSheet.create({
   container   : {
-    backgroundColor: '#fff',
+
     margin:10,
     overflow:'hidden'
   },

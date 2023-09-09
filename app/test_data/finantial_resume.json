@@ -8,16 +8,19 @@
         "total_status": "no-debt",
         "fields"      : [
           {
+            "id"     : 1,
             "label"  : "2023-08",
             "value"  : "$100.00",
             "status" : "paid"
           },
           {
+            "id"     : 2,
             "label"  : "2023-09",
             "value"  : "$100.00",
             "status" : "paid"
           },
           {
+            "id"     : 3,
             "label"  : "2023-09 Protocolo",
             "value"  : "$250.00",
             "status" : "paid"
@@ -32,16 +35,19 @@
         "total_status": "debt",
         "fields"      : [
           {
+            "id"     : 1,
             "label"  : "2023-08",
             "value"  : "$100.00",
             "status" : "paid"
           },
           {
+            "id"     : 2,
             "label"  : "2023-09",
             "value"  : "$100.00",
             "status" : "paid"
           },
           {
+            "id"     : 3,
             "label"  : "2023-09 Protocolo",
             "value"  : "$250.00",
             "status" : "debt"
@@ -56,9 +62,91 @@
         "total_status": "spent",
         "fields"      : [
           {
+            "id"     : 1,
             "label"  : "Soldadura Silla",
             "value"  : "$500.00",
             "status" : "spent"
+          }
+        ] 
+      },
+      {
+        "id"          : 4,
+        "name"        : "C42",
+        "total_label" : "Deuda",
+        "total"       : "$0.00",
+        "total_status": "no-debt",
+        "fields"      : [
+          {
+            "id"     : 1,
+            "label"  : "2023-08",
+            "value"  : "$100.00",
+            "status" : "paid"
+          },
+          {
+            "id"     : 2,
+            "label"  : "2023-09",
+            "value"  : "$100.00",
+            "status" : "paid"
+          },
+          {
+            "id"     : 3,
+            "label"  : "2023-09 Protocolo",
+            "value"  : "$250.00",
+            "status" : "paid"
+          }
+        ] 
+      },
+      {
+        "id"          : 5,
+        "name"        : "C42",
+        "total_label" : "Deuda",
+        "total"       : "$0.00",
+        "total_status": "no-debt",
+        "fields"      : [
+          {
+            "id"     : 1,
+            "label"  : "2023-08",
+            "value"  : "$100.00",
+            "status" : "paid"
+          },
+          {
+            "id"     : 2,
+            "label"  : "2023-09",
+            "value"  : "$100.00",
+            "status" : "paid"
+          },
+          {
+            "id"     : 3,
+            "label"  : "2023-09 Protocolo",
+            "value"  : "$250.00",
+            "status" : "paid"
+          }
+        ] 
+      },
+      {
+        "id"          : 6,
+        "name"        : "C42",
+        "total_label" : "Deuda",
+        "total"       : "$0.00",
+        "total_status": "no-debt",
+        "fields"      : [
+          {
+            "id"     : 1,
+            "label"  : "2023-08",
+            "value"  : "$100.00",
+            "status" : "paid"
+          },
+          {
+            "id"     : 2,
+            "label"  : "2023-09",
+            "value"  : "$100.00",
+            "status" : "paid"
+          },
+          {
+            "id"     : 3,
+            "label"  : "2023-09 Protocolo",
+            "value"  : "$250.00",
+            "status" : "paid"
           }
         ] 
       }
