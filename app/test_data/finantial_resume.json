@@ -1,0 +1,66 @@
+{
+    "rows" : [
+      {
+        "id"          : 1,
+        "name"        : "C42",
+        "total_label" : "Deuda",
+        "total"       : "$0.00",
+        "total_status": "no-debt",
+        "fields"      : [
+          {
+            "label"  : "2023-08",
+            "value"  : "$100.00",
+            "status" : "paid"
+          },
+          {
+            "label"  : "2023-09",
+            "value"  : "$100.00",
+            "status" : "paid"
+          },
+          {
+            "label"  : "2023-09 Protocolo",
+            "value"  : "$250.00",
+            "status" : "paid"
+          }
+        ] 
+      },
+      {
+        "id"          : 2,
+        "name"        : "C15",
+        "total_label" : "Deuda",
+        "total"       : "$250.00",
+        "total_status": "debt",
+        "fields"      : [
+          {
+            "label"  : "2023-08",
+            "value"  : "$100.00",
+            "status" : "paid"
+          },
+          {
+            "label"  : "2023-09",
+            "value"  : "$100.00",
+            "status" : "paid"
+          },
+          {
+            "label"  : "2023-09 Protocolo",
+            "value"  : "$250.00",
+            "status" : "debt"
+          }
+        ] 
+      },
+      {
+        "id"          : 3,
+        "name"        : "Gastos",
+        "total_label" : "Total 2023-09",
+        "total"       : "$500.00",
+        "total_status": "spent",
+        "fields"      : [
+          {
+            "label"  : "Soldadura Silla",
+            "value"  : "$500.00",
+            "status" : "spent"
+          }
+        ] 
+      }
+    ]
+  }
