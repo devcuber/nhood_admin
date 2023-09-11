@@ -1,29 +1,48 @@
 import React from 'react';
-import { View, Text, FlatList, StyleSheet} from 'react-native';
+import { View, Text, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
 
-export default function BalanceCard(props){
+export default function FinantialResume(props){
     let resume_data = props.data
+    let open = true
+
+    const action = () => {
+      open = !open
+    } ;
+
     return (
       <View style ={styles.container}>
         <FlatList
             data={resume_data.rows}
             renderItem={({ item }) => (
               <View style={styles.item}>
-                <View style={styles.titleContainer}>
-                  <Text style={styles.title}>{item.name}</Text>
-                  <Text style={styles.title}>{item.total_label}</Text>
-                  <Text style={styles.title}>{item.total}</Text>
-                  <Text style={styles.button}>O</Text>
-                </View>
-                <FlatList 
-                  data={item.fields}
-                  renderItem={({item}) => (
-                    <View style={{flexDirection:'row', justifyContent:'space-between', margin:3}}>
-                      <Text>{item.label} </Text>
-                      <Text>{item.value} </Text>
+                <View style={{flexDirection:'row', width:'80%'}} >
+                  <TouchableOpacity style={styles.ActionBtn} onPress={action} >
+                    { open ? (
+                      <Text style={styles.ButtonText}> ▲ </Text> 
+                    ):(
+                      <Text style={styles.ButtonText}> ▼ </Text> 
+                    )}
+                  </TouchableOpacity>
+                  <View style={{width:'100%'}} >
+                    <View style={{flexDirection:'row', justifyContent:'space-between'}}>
+                      <Text style={styles.title}>{item.name}</Text>
+                      <Text style={styles.text}>{item.total_label} {item.total}</Text>
                     </View>
-                  )}
-                />
+                    { open ? (
+                    <FlatList 
+                      data={item.fields}
+                      renderItem={({item}) => (
+                        <View style={{flexDirection:'row', justifyContent:'space-between', margin:3}}>
+                          <Text style={styles.title} >{item.label} </Text>
+                          <Text style={styles.text} >{item.value} </Text>
+                        </View>
+                      )}
+                    />
+                    ):(
+                      null
+                    )}
+                  </View>
+                </View>
               </View>
             )}
             keyExtractor={(item, index) => index}
@@ -37,13 +56,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     margin:10,
     overflow:'hidden',
+    height : '70%'
   },
   item:{
-    borderWidth: 1,
-    margin:5
+    borderTopWidth: 1
   },
   titleContainer : {
-      borderWidth: 1,
       flexDirection: 'row',
       justifyContent:'space-between',
       alignItems : 'flex-end',
@@ -59,13 +77,21 @@ const styles = StyleSheet.create({
     color   :'#2a2f43',
     fontWeight:'bold',
   },
-  buttonImage : {
-      width   : 30,
-      height  : 25
-  },
   body        : {
       padding     : 10,
       paddingTop  : 0
+  },
+  ActionBtn : {
+    borderRadius: 25,
+    height: 30,
+    width: 30,
+    margin : 5,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#39a0ff",
+  },
+  ButtonText : {
+    color:"white"
   }
 
 });
