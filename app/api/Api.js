@@ -14,10 +14,17 @@ class Api {
     }
 
     LogIn(username, password) {
+        //// TEMPORARY CODE
+        if (username != 'C42' || password != 'C42') {
+          alert('usuario: C42\npassword C42' )
+          return null
+        }
         return {
             id : '42',
+            username : 'C42',
             name : 'Casa 42'
         }
+        //////////////////////////////////
         value = {
             'username' : username,
             'password' : password

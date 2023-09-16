@@ -5,9 +5,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import Login from '@screens/Login';
 import News from '@screens/News';
 import Savings from '@screens/Savings';
+import Api from '@api/Api';
+import { storeUserInformation, retrieveUserInformation } from '@storage/UserStorage'
 
 const Drawer = createDrawerNavigator();
 const AuthContext = React.createContext();
@@ -36,19 +37,7 @@ function SignInScreen() {
   const { signIn } = React.useContext(AuthContext);
 
   function login_action (username, password) {
-    console.log('login_action')
-    console.log('username: ', username)
-    console.log('password: ', password)
-    if (username != 'C42' || password != 'C42') {
-      alert('usuario: C42\npassword C42' )
-      return
-    }
-    if (password != 'C42') {
-      alert('password: C42')
-      return
-    }
     signIn({ username, password })
-    
   } ;
 
 
@@ -137,18 +126,24 @@ export default function App({ navigation }) {
             ...prevState,
             userToken: action.token,
             isLoading: false,
+            id: action.id,
+            name: action.name
           };
         case 'SIGN_IN':
           return {
             ...prevState,
             isSignout: false,
             userToken: action.token,
+            id : action.id,
+            name : action.name
           };
         case 'SIGN_OUT':
           return {
             ...prevState,
             isSignout: true,
             userToken: null,
+            id : null,
+            name : null
           };
       }
     },
@@ -163,8 +158,15 @@ export default function App({ navigation }) {
     // Fetch the token from storage then navigate to our appropriate place
     const bootstrapAsync = async () => {
       let userToken;
+      let id;
+      let name;
 
       try {
+        const userData = await retrieveUserInformation()
+        console.log('automatic login: ', userData)
+        userToken= userData.token
+        id= userData.id
+        name=  userData.name
         // Restore token stored in `SecureStore` or any other encrypted storage
         // userToken = await SecureStore.getItemAsync('userToken');
       } catch (e) {
@@ -175,7 +177,7 @@ export default function App({ navigation }) {
 
       // This will switch to the App screen or Auth screen and this loading
       // screen will be unmounted and thrown away.
-      dispatch({ type: 'RESTORE_TOKEN', token: userToken });
+      dispatch({ type: 'RESTORE_TOKEN', token: userToken, id:id, name:name });
     };
 
     bootstrapAsync();
@@ -184,14 +186,44 @@ export default function App({ navigation }) {
   const authContext = React.useMemo(
     () => ({
       signIn: async (data) => {
+        const api = new Api()
+        response = api.LogIn(data.username, data.password)
+        
+        if (! response) {
+          return
+        }
+        const name = response.name
+        const id = response.id
+        const token = 'dummy-auth-token'
+
+        userData = {
+          id : id,
+          name : name, 
+          token : token
+        }
+        console.log('save user', userData)
+        storeUserInformation(userData)
+
+
+        //TODO
+        //SecureStore
+        
         // In a production app, we need to send some data (usually username, password) to server and get a token
         // We will also need to handle errors if sign in failed
         // After getting token, we need to persist the token using `SecureStore` or any other encrypted storage
         // In the example, we'll use a dummy token
 
-        dispatch({ type: 'SIGN_IN', token: 'dummy-auth-token' });
+        dispatch({ type: 'SIGN_IN', token: token, id:id, name:name });
       },
-      signOut: () => dispatch({ type: 'SIGN_OUT' }),
+      signOut: () => { 
+        userData = {
+          id : null,
+          name : null,
+          token : null
+        }
+        storeUserInformation(userData)
+        dispatch({ type: 'SIGN_OUT' })
+      },
       signUp: async (data) => {
         // In a production app, we need to send user data to server and get a token
         // We will also need to handle errors if sign up failed
