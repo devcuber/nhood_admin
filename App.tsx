@@ -51,6 +51,7 @@ function SignInScreen() {
     },
     image: {
       marginBottom: 40,
+      borderRadius: 80,
     },
     inputView: {
       backgroundColor: "#39a0ff",
@@ -89,21 +90,21 @@ function SignInScreen() {
   
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={require("@assets/images/logo.jpg")} /> 
-      
+      <Image style={styles.image} source={require("@assets/images/logo.png")} /> 
+
       <View style={styles.inputView}>
         <TextInput
           style={styles.TextInput}
-          placeholder="Username"
-          placeholderTextColor="white"
+          placeholder="Usuario"
+          placeholderTextColor="#C3E4E9"
           onChangeText={(username) => setUsername(username)}
         /> 
       </View> 
       <View style={styles.inputView}>
         <TextInput
           style={styles.TextInput}
-          placeholder="Password"
-          placeholderTextColor="white"
+          placeholder="Constraseña"
+          placeholderTextColor="#C3E4E9"
           secureTextEntry={true}
           onChangeText={(password) => setPassword(password)}
         /> 
