@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Image , StyleSheet, FlatList} from 'react-native';
+import { View, Text, TouchableOpacity, Image , StyleSheet, FlatList, Linking} from 'react-native';
 
 
 export default function NewsContainer(props){
     let data = props.data
 
-    const action = () => {
-      alert('something')
+    const action = (link) => {
+      Linking.openURL(link);
     } ;
     
     const styles = StyleSheet.create({
@@ -63,7 +63,7 @@ export default function NewsContainer(props){
               <Text style={styles.text}>{text}</Text>
               <Text style={styles.text}>{date}</Text>
             </View>
-            <TouchableOpacity style={styles.ActionBtn} onPress={action} >
+            <TouchableOpacity style={styles.ActionBtn} onPress={() => action(link)} >
                 <Text style={styles.ButtonText}> Enlace </Text> 
             </TouchableOpacity>
           </>

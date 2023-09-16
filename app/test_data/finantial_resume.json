@@ -46,8 +46,8 @@
         "id"          : 2,
         "name"        : "Casa 02",
         "total_label" : "Deuda",
-        "total"       : "$0.00",
-        "total_status": "no-debt",
+        "total"       : "$100.00",
+        "total_status": "debt",
         "fields"      : [
           {
             "id"     : 1,
@@ -59,7 +59,7 @@
             "id"     : 2,
             "label"  : "2023-09",
             "value"  : "$100.00",
-            "status" : "paid"
+            "status" : "debt"
           },
           {
             "id"     : 3,

@@ -3,6 +3,7 @@ import React from "react";
 import {StyleSheet,View} from "react-native";
 import BalanceCard from '@components/BalanceCard';
 import FinantialResume from '@components/FinantialResume';
+import Api from '@api/Api';
 
 const styles = StyleSheet.create({
   container   : {
@@ -13,8 +14,9 @@ const styles = StyleSheet.create({
 });
 
 export default function Savings(props) {
-  const summary_data = require('@test-data/summary_data.json');
-  const resume_data  = require('@test-data/finantial_resume.json');
+  const api = new Api()
+  const summary_data = api.getBalance()
+  const resume_data  = api.getFinantialResume()
 
   // <FinantialResume data = {resume_data} />
   return (

@@ -2,30 +2,15 @@
 import React, { Component } from 'react';
 import {StyleSheet, View} from "react-native";
 import NewsContainer from '@components/NewsContainer';
+import Api from '@api/Api';
 
-const data = require('@test-data/news.json');
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
+export default function News(props) {
+  const api = new Api()
+  const data = api.getNews()
 
-export default class News extends Component {
-  //TODO IF NO NEWS
-  static   navigationOptions = {
-    //name in Side-menu bar
-   drawerLabel: 'News',  
-  };
-
-  handleButton = () => {
-    this.props.navigation.navigate('Savings');
-  }
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <NewsContainer data={data}/>
-      </View> 
-    );
-  }
+  return (
+    <View >
+      <NewsContainer data={data}/>
+    </View> 
+  );
 }

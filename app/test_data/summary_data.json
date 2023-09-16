@@ -1,7 +1,12 @@
 {
-    "current_balance"      : "$4,600.27",     
-    "outstanding_balance"  : "$100.00"   ,      
-    "month_income"         : "$3,600.27"  ,   
-    "month_expenses"       : "$500.00"     ,
-    "updated_at"           : "22/08/2023 15:22:07" 
+    "current_balance"           : "$4,600.27",
+    "current_balance_label"     : "Saldo Actual",
+    "outstanding_balance"       : "$100.00",
+    "outstanding_balance_label" : "Deuda Casa 42",
+    "month_income"              : "$3,600.27",
+    "month_income_label"        : "Ingreso del mes",
+    "month_expenses"            : "$500.00",
+    "month_expenses_label"      : "Gastos del mes",
+    "updated_at"                : "22/08/2023 15:22:07",
+    "updated_at_label"          : "Actualizado"
 }
