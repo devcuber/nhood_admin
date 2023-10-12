@@ -6,42 +6,80 @@ const headers = {
     'Access-Control-Allow-Origin': '*',
 }
 
-const id = '123'
+const api_config = require('@api/config.json');
+const login_url = api_config['base'] + api_config['login']
+const news_url = api_config['base'] + api_config['news']
+const resume_url = api_config['base'] + api_config['resume']
+const summary_url = api_config['base'] + api_config['summary']
 
 class Api {
     constructor() {
         this.request = axios.create({ baseURL: base, headers });
     }
 
-    LogIn(username, password) {
-        //// TEMPORARY CODE
-        if (username != 'C42' || password != 'C42') {
-          alert('usuario: C42\npassword C42' )
-          return null
-        }
-        return {
-            id : '42',
-            username : 'C42',
-            name : 'Casa 42'
-        }
-        //////////////////////////////////
-        value = {
-            'username' : username,
-            'password' : password
-        }
-        return this.request({ url: 'Login', data: value, method: 'post' })
+    async LogIn(username, password) {
+        value = {'username' : username,'password' : password}
+        result = await this.request({ url: login_url, data: value, method: 'post' })
+            .catch(function (error) {
+                if (error.response) {
+                    alert('usuario o contraseña no son correctos')
+                } else if (error.request) {
+                    alert('Error de conexión')
+                } else {
+                    alert('error')
+                }
+            })
+        if (result && result != undefined)
+            return result.data
+        return null
+
     }
-    getNews() {
-        return require('@test-data/news.json');
-        return this.request({ url: 'News/' + id })
+    async getNews(id) {
+        result = await this.request({ url: news_url + id })
+            .catch(function (error) {
+                if (error.response) {
+                    alert('Error')
+                } else if (error.request) {
+                    alert('Error de conexión')
+                } else {
+                    alert('error')
+                }
+            })
+        if (result && result != undefined)
+            return result.data
+        return {'rows':[]}
     }
-    getFinantialResume() {
-        return require('@test-data/finantial_resume.json');
-        return this.request({ url: 'Resume/' + id })
+
+    async getResume(id) {
+        result = await this.request({ url: resume_url + id })
+            .catch(function (error) {
+                if (error.response) {
+                    alert('Error')
+                } else if (error.request) {
+                    alert('Error de conexión')
+                } else {
+                    alert('error')
+                }
+            })
+        if (result && result != undefined)
+            return result.data
+        return {'rows':[]}
     }
-    getBalance() {
-        return require('@test-data/summary_data.json');
-        return this.request({ url: 'Balance/' + id })
+
+    async getSummary(id) {
+        result = await this.request({ url: summary_url + id })
+            .catch(function (error) {
+                if (error.response) {
+                    alert('Error')
+                } else if (error.request) {
+                    alert('Error de conexión')
+                } else {
+                    alert('error')
+                }
+            })
+        if (result && result != undefined)
+            return result.data
+        return {}
     }
 
 

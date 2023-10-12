@@ -1,0 +1,7 @@
+{
+    "base" : "http://192.168.0.105:8000/",
+    "login" : "neighborhood/login/",
+    "news" : "news/get-by-user/",
+    "resume" : "savings/get-savings-resume/",
+    "summary" : "savings/get-savings-summary/"
+}

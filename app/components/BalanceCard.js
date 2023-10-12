@@ -10,22 +10,22 @@ export default function BalanceCard(props){
       <View style={styles.card}  >
         <View style={styles.row} >
           <View>
-            <Text style={{color:"green", fontWeight:"bold", fontSize:42}}>{summary_data.current_balance}</Text>
-            <Text style={styles.text}> {summary_data.current_balance_label} </Text>
+            <Text style={{color:"green", fontWeight:"bold", fontSize:36}}>{summary_data.our_current_balance}</Text>
+            <Text style={styles.text}> {summary_data.our_current_balance_label} </Text>
           </View>
           <View>
-            <Text style={{color:"red", fontSize:24}}>{summary_data.outstanding_balance}</Text>
-            <Text style={styles.text}>{summary_data.outstanding_balance_label}</Text>
+            <Text style={{color:"red", fontSize:24}}>{summary_data.our_outstanding_balance}</Text>
+            <Text style={styles.text}>{summary_data.our_outstanding_balance_label}</Text>
           </View>  
         </View>
         <View style={styles.row} >
           <View>
-            <Text style={{color:"green", fontSize:24}}>{summary_data.month_income}</Text>
-            <Text style={styles.text}>{summary_data.month_income_label}</Text>
+            <Text style={{color:"green", fontSize:24}}>{summary_data.my_current_balance}</Text>
+            <Text style={styles.text}>{summary_data.my_current_balance_label}</Text>
           </View>
           <View>
-            <Text style={{color:"green", fontSize:24}}>{summary_data.month_expenses}</Text>
-            <Text style={styles.text}>{summary_data.month_expenses_label}</Text>
+            <Text style={{color:"red", fontSize:24}}>{summary_data.my_outstanding_balance}</Text>
+            <Text style={styles.text}>{summary_data.my_outstanding_balance_label}</Text>
           </View>  
         </View>
 

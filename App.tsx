@@ -188,14 +188,14 @@ export default function App({ navigation }) {
     () => ({
       signIn: async (data) => {
         const api = new Api()
-        response = api.LogIn(data.username, data.password)
+        response = await api.LogIn(data.username, data.password)
         
         if (! response) {
           return
         }
         const name = response.name
         const id = response.id
-        const token = 'dummy-auth-token'
+        const token = response.token
 
         userData = {
           id : id,
@@ -249,11 +249,10 @@ export default function App({ navigation }) {
               <Stack.Screen name="Inicio" component={SignInScreen}/>
             </Stack.Navigator>
           ) : (
-            <Drawer.Navigator>
+            <Drawer.Navigator screenOptions={{unmountOnBlur: true}}>
               <Drawer.Screen name="Noticias" component={News} />
               <Drawer.Screen name="Fondo de ahorros" component={Savings} />
               <Drawer.Screen name="Cerrar sesión" component={SingOut} />
-              
             </Drawer.Navigator>
           )}
 
