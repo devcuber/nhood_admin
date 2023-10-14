@@ -6,7 +6,6 @@ import {retrieveUserInformation } from '@storage/UserStorage'
 import Api from '@api/Api';
 
 export default function News(props) {
-  console.log("Savings enter")
   const [data, setData] = useState([]);
   const [isLoading, setLoading] = useState(true);
 

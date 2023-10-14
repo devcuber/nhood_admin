@@ -14,7 +14,6 @@ const styles = StyleSheet.create({
 });
 
 export default function Savings(props) {
-  console.log("Savings enter")
   const [summary_data, setSummaryData] = useState([]);
   const [isSummaryLoading, setSummaryLoading] = useState(true);
   const [resume_data, setResumeData] = useState([]);

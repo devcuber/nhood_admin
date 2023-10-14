@@ -1,5 +1,5 @@
 {
-    "base" : "http://192.168.0.105:8000/",
+    "base" : "https://devcuber.pythonanywhere.com/",
     "login" : "neighborhood/login/",
     "news" : "news/get-by-user/",
     "resume" : "savings/get-savings-resume/",
