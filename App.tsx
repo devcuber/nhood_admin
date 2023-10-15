@@ -1,7 +1,7 @@
 //import * as React from 'react';
 import React, { useEffect } from 'react';
-import { Button, Text, TextInput, View , StyleSheet, Image, TouchableOpacity} from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { Button, Text, TextInput, View , StyleSheet, Image, TouchableOpacity, Alert} from 'react-native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
@@ -23,12 +23,23 @@ function SplashScreen() {
 
 function SingOut() {
   const { signOut } = React.useContext(AuthContext);
-
+  const navigation = useNavigation();
   useEffect(() => {
-    signOut()
+    Alert.alert(
+      'Cerrar sesión', 
+      '¿Deseas cerrar sesión?',
+      [
+        {
+          text: 'Cancelar',
+          onPress: () => navigation.goBack(),
+        },
+        {
+          text: 'Si', 
+          onPress: () => signOut()
+        },
+      ]
+    )
   }, [])
-
-
 }
 
 function SignInScreen() {
