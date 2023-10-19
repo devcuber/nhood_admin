@@ -1,7 +1,7 @@
 {
-    "base" : "https://devcuber.pythonanywhere.com/",
-    "login" : "neighborhood/login/",
-    "news" : "news/get-by-user/",
-    "resume" : "savings/get-savings-resume/",
+    "base"    : "https://devcuber.pythonanywhere.com/",
+    "login"   : "neighborhood/login/",
+    "news"    : "news/get-by-user/",
+    "resume"  : "savings/get-savings-resume/",
     "summary" : "savings/get-savings-summary/"
 }
